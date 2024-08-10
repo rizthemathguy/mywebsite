@@ -6,7 +6,6 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Navbar Styles */
 .navbar {
     margin-bottom: 0;
     background-color: #ffffff;
@@ -23,7 +22,6 @@ body {
     color: #000;
 }
 
-/* Header Section */
 .header-section {
     padding: 100px 20px;
     background-color: #ffffff;
@@ -32,7 +30,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 20px; /* Space between navbar and content */
+    margin-top: 20px; 
 }
 
 .text-container h1, .text-container h2 {
@@ -45,17 +43,16 @@ body {
 
 .image-container {
     max-width: 400px;
-    margin-left: 20px; /* Move image slightly to the right */
+    margin-left: 20px; 
 }
 
 .image-container img {
     max-width: 100%;
-    border-radius: 50%; /* Circle image */
+    border-radius: 50%; 
     object-fit: cover;
     display: block;
 }
 
-/* About Me Section */
 .about-me {
     height: 100vh;
     display: flex;
@@ -63,13 +60,13 @@ body {
     align-items: center;
     background-color: #f8f9fa;
     padding: 2rem;
-    flex-direction: row-reverse; /* Image on the left, text on the right */
+    flex-direction: row-reverse; 
 }
 
 .about-me .text-container {
     max-width: 600px;
     text-align: left;
-    margin-left: 20px; /* Space between image and text */
+    margin-left: 20px; 
 }
 
 .about-me .text-container h1 {
@@ -81,7 +78,6 @@ body {
     font-size: 1.25rem;
 }
 
-/* Projects Section */
 .projects {
     height: 100vh;
     display: flex;
@@ -100,7 +96,6 @@ body {
     font-weight: bold;
 }
 
-/* Photography Section */
 .photography {
     height: 100vh;
     padding: 50px 20px;
@@ -116,7 +111,6 @@ body {
     border-radius: 50%;
 }
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -172,7 +166,6 @@ body {
     cursor: pointer;
 }
 
-/* Footer Styles */
 footer {
     padding: 20px;
     background-color: #343a40;
