@@ -14,25 +14,28 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Rizwan Miah</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand font-weight-bold" href="#">Rizwan Miah</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#about-me-section">About Me</a>
+          <a class="nav-link font-weight-bold" href="#about-me-section">About Me</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#photography-section">Photography</a>
+          <a class="nav-link font-weight-bold" href="#projects-section">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="#photography-section">Photography</a>
         </li>
       </ul>
     </div>
   </nav>
 
   <!-- Header Section -->
-  <header class="header-section d-flex justify-content-around align-items-center">
+  <header class="header-section d-flex justify-content-between align-items-center">
     <div class="text-container p-4">
       <h1 class="text-muted">Student Engineer, Photographer</h1>
       <h2>Hello, I'm</h2>
@@ -47,36 +50,30 @@
         </a>
       </div>
     </div>
-    <div class="carousel-container">
-      <div id="carouselExampleControlsHeader" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://media.discordapp.net/attachments/927285669557047336/1271276974450540618/IMG_0034.jpg?ex=66b8bab1&is=66b76931&hm=61b3953773ecf896f7bc1e0a2bcaf31cd1c00782621acfdbe1417f7c19308e2c&=&format=webp&width=592&height=592" class="d-block w-100 custom-img-size" alt="First Image">
-          </div>
-          <div class="carousel-item">
-            <img src="https://media.discordapp.net/attachments/927285669557047336/1271289893753978942/ig_6.jpg?ex=66b8c6ba&is=66b7753a&hm=3092de0803182a3ea0fb05725dec487412023a0e0fd23c6719d5c11ce9fa9a3c&=&format=webp&width=636&height=477" class="d-block w-100 custom-img-size" alt="Second Image">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControlsHeader" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControlsHeader" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+    <div class="image-container">
+      <img src="https://media.discordapp.net/attachments/927285669557047336/1271276974785957941/IMG_0049.jpg?ex=66b8bab1&is=66b76931&hm=7878227581d4b0dcee266c00f340fe25e7f45f3962d6bcd1e8eef6d80d4132f6&=&format=webp&width=394&height=592" class="d-block rounded-circle custom-img-size" alt="Introduction Image">
     </div>
   </header>
 
   <!-- About Me Section -->
-  <section id="about-me-section" class="about-me text-center mt-5">
-    <h3>About Me</h3>
-    <p>My name is Rizwan Miah and welcome to my website, I'll be updating it every once and a while to stick around and you might find a cookie 😯</p>
+  <section id="about-me-section" class="about-me d-flex align-items-center justify-content-center">
+    <div class="image-container">
+      <img src="https://media.discordapp.net/attachments/927285669557047336/1271289893753978942/ig_6.jpg?ex=66b8c6ba&is=66b7753a&hm=3092de0803182a3ea0fb05725dec487412023a0e0fd23c6719d5c11ce9fa9a3c&=&format=webp&width=636&height=477" class="d-block rounded-circle custom-img-size" alt="About Me Image">
+    </div>
+    <div class="text-container">
+      <h1 class="display-3 font-weight-bold">About Me</h1>
+      <p class="lead">My name is Rizwan Miah and welcome to my website, I'll be updating it every once and a while to stick around and you might find a cookie 😯</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects-section" class="projects text-center">
+    <h3>Browse My Recent</h3>
+    <h1 class="font-weight-bold">Projects (Coming soon)</h1>
   </section>
 
   <!-- Photography Section -->
-  <section id="photography-section" class="photography text-center mt-5">
+  <section id="photography-section" class="photography text-center">
     <h3>Photography</h3>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -135,4 +132,3 @@
 </body>
 
 </html>
-
