@@ -30,19 +30,16 @@ body {
     margin-top: 20px; /* Space between navbar and content */
 }
 
-.header-section .text-container {
-    margin-right: 15px; /* Adjust space between text and edge */
+.text-container {
+    margin-right: 30px; /* Adjust space between text and image */
 }
 
-.image-container {
-    max-width: 400px;
-    margin-left: 15px; /* Adjust space between image and edge */
+.carousel-container {
+    max-width: 500px;
 }
 
-.image-container img {
+.carousel-container img {
     max-width: 100%;
-    border-radius: 50%; /* Circle image */
-    object-fit: cover;
     display: block;
 }
 
@@ -50,7 +47,6 @@ body {
 .about-me {
     height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: #f8f9fa;
     padding: 2rem;
@@ -63,12 +59,12 @@ body {
     margin-left: 40px; /* Increase space between image and text */
 }
 
-.about-me .text-container h1 {
+.about-me h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.about-me .text-container p {
+.about-me p {
     font-size: 1.25rem;
 }
 
