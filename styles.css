@@ -6,22 +6,19 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Navbar Styles */
 .navbar {
     margin-bottom: 0;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Updated to white */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-brand {
+.navbar-brand, .nav-link {
     font-weight: bold;
     color: #000;
 }
 
-.navbar-nav .nav-link {
-    font-weight: bold;
-    color: #000;
-}
-
+/* Header Section */
 .header-section {
     padding: 100px 20px;
     background-color: #ffffff;
@@ -30,29 +27,26 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 20px; 
+    margin-top: 20px; /* Space between navbar and content */
 }
 
-.text-container h1, .text-container h2 {
-    margin: 0;
-}
-
-.mt-4 {
-    margin-top: 2rem;
+.header-section .text-container {
+    margin-right: 15px; /* Adjust space between text and edge */
 }
 
 .image-container {
     max-width: 400px;
-    margin-left: 20px; 
+    margin-left: 15px; /* Adjust space between image and edge */
 }
 
 .image-container img {
     max-width: 100%;
-    border-radius: 50%; 
+    border-radius: 50%; /* Circle image */
     object-fit: cover;
     display: block;
 }
 
+/* About Me Section */
 .about-me {
     height: 100vh;
     display: flex;
@@ -60,13 +54,13 @@ body {
     align-items: center;
     background-color: #f8f9fa;
     padding: 2rem;
-    flex-direction: row-reverse; 
+    flex-direction: row-reverse; /* Image on the left, text on the right */
 }
 
 .about-me .text-container {
     max-width: 600px;
     text-align: left;
-    margin-left: 20px; 
+    margin-left: 40px; /* Increase space between image and text */
 }
 
 .about-me .text-container h1 {
@@ -78,6 +72,7 @@ body {
     font-size: 1.25rem;
 }
 
+/* Projects Section */
 .projects {
     height: 100vh;
     display: flex;
@@ -96,6 +91,7 @@ body {
     font-weight: bold;
 }
 
+/* Photography Section */
 .photography {
     height: 100vh;
     padding: 50px 20px;
@@ -111,6 +107,7 @@ body {
     border-radius: 50%;
 }
 
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -166,6 +163,7 @@ body {
     cursor: pointer;
 }
 
+/* Footer Styles */
 footer {
     padding: 20px;
     background-color: #343a40;
