@@ -1,44 +1,29 @@
-function updateDateTime() {
-    const now = new Date();
-    const datetimeElement = document.getElementById('datetime');
-    datetimeElement.textContent = now.toLocaleString();
-}
+const otherSocialsBtn = document.getElementById('other-socials-btn');
+const otherSocialsModal = document.getElementById('other-socials-modal');
+const closeBtn = document.querySelectorAll('.close-btn');
 
-setInterval(updateDateTime, 1000);
-
-function showCongratsModal() {
-    document.getElementById('congrats-modal').style.display = 'block';
-}
-
-document.querySelector('#congrats-modal .close-btn').addEventListener('click', function() {
-    document.getElementById('congrats-modal').style.display = 'none';
+otherSocialsBtn.addEventListener('click', function () {
+    otherSocialsModal.style.display = 'block';
 });
 
-window.addEventListener('click', function(event) {
-    if (event.target == document.getElementById('congrats-modal')) {
-        document.getElementById('congrats-modal').style.display = 'none';
+closeBtn.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        otherSocialsModal.style.display = 'none';
+        doubleClickModal.style.display = 'none';
+    });
+});
+
+window.addEventListener('click', function (e) {
+    if (e.target == otherSocialsModal) {
+        otherSocialsModal.style.display = 'none';
     }
 });
 
-const carouselImages = document.querySelectorAll('.carousel-image');
-carouselImages.forEach(function(image) {
-    image.addEventListener('dblclick', showCongratsModal);
+const carouselImages = document.querySelectorAll('.carousel-item img');
+const doubleClickModal = document.getElementById('double-click-modal');
+
+carouselImages.forEach(function (img) {
+    img.addEventListener('dblclick', function () {
+        doubleClickModal.style.display = 'block';
+    });
 });
-
-function showOtherSocialsModal() {
-    document.getElementById('other-socials-modal').style.display = 'block';
-}
-
-document.querySelector('#other-socials-modal .close-btn').addEventListener('click', function() {
-    document.getElementById('other-socials-modal').style.display = 'none';
-});
-
-window.addEventListener('click', function(event) {
-    if (event.target == document.getElementById('other-socials-modal')) {
-        document.getElementById('other-socials-modal').style.display = 'none';
-    }
-});
-
-document.getElementById('socials-btn').addEventListener('click', showOtherSocialsModal);
-
-document.getElementById('other-socials-btn').addEventListener('click', showOtherSocialsModal);
