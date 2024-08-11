@@ -192,19 +192,31 @@ body.dark-mode .modal-content {
 /* Dark Mode Toggle Button */
 #dark-mode-toggle {
     position: fixed;
-    bottom: 60px; /* Adjusted to be above the back-to-top button */
-    right: 20px;
-    z-index: 1001;
-    padding: 10px 15px;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px;
     background-color: #000;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%; /* Make it a circle */
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
-}
-
-#dark-mode-toggle:hover {
+    font-size: 20px; /* Adjust font size for circle */
+    width: 50px; /* Width of the circle */
+    height: 50px; /* Height of the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #dark-mode-toggle:hover {
     background-color: #333;
-}
+  }
+  
+  /* Ensure button is properly visible over content */
+  body.dark-mode #dark-mode-toggle {
+    background-color: #fff;
+    color: #000;
+  }
+  

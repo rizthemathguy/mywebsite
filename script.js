@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateButtonText() {
         if (body.classList.contains('dark-mode')) {
-            darkModeToggle.innerHTML = 'Light Mode &#x2600;'; // Sun icon
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode
         } else {
-            darkModeToggle.innerHTML = 'Dark Mode &#x1F319;'; // Moon icon
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon for light mode
         }
     }
 
