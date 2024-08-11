@@ -1,9 +1,11 @@
+/* Default (Light Mode) */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #f4f4f4;
+    color: #000;
 }
 
 /* Navbar Styles */
@@ -170,4 +172,39 @@ footer {
     bottom: 20px;
     right: 20px;
     display: none;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark-mode .navbar, body.dark-mode .header-section, body.dark-mode .about-me, body.dark-mode .projects, body.dark-mode .photography {
+    background-color: #444;
+}
+
+body.dark-mode .modal-content {
+    background-color: #555;
+    color: #f4f4f4;
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+    position: fixed;
+    bottom: 60px; /* Adjusted to be above the back-to-top button */
+    right: 20px;
+    z-index: 1001;
+    padding: 10px 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #333;
 }
