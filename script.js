@@ -42,3 +42,8 @@ window.addEventListener('scroll', function () {
 backToTopBtn.addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Add spinning effect to images
+document.querySelectorAll('.image-container img').forEach(img => {
+    img.classList.add('spinning-img');
+});

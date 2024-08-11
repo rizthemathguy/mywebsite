@@ -104,6 +104,35 @@ body {
     border-radius: 50%;
 }
 
+/* Skills Section */
+.skills {
+    height: 100vh;
+    background-color: #f8f9fa;
+    padding: 50px 20px;
+}
+
+.skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill h4 {
+    font-size: 1.25rem;
+}
+
+.progress {
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    background-color: #007bff;
+    color: #fff;
+}
+
 /* Modal Styles */
 .modal {
     display: none;
@@ -159,4 +188,13 @@ footer {
     bottom: 20px;
     right: 20px;
     display: none;
+}
+
+/* Spinning Animation */
+.spinning-img {
+    transition: transform 0.6s ease;
+}
+
+.spinning-img:hover {
+    transform: rotate(360deg);
 }
