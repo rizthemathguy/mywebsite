@@ -276,7 +276,18 @@ body.dark-mode .modal-content {
 html {
     scroll-behavior: smooth;
 }
-
+/* Enhanced Header Section with Background */
+.header-section {
+    padding: 100px 20px;
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('your-background-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 /* Lightbox for Photography Section */
 .photography img {
     cursor: pointer;
