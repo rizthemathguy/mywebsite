@@ -264,3 +264,42 @@ body.dark-mode .modal-content {
 #dark-mode-toggle:hover {
     background-color: #333;
 }
+
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Lightbox for Photography Section */
+.photography img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.photography img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer Enhancements */
+footer .social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+footer .social-icons a:hover {
+    color: #007bff;
+}
+
+/* Dark Mode Toggle Animation */
+#dark-mode-toggle {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+#dark-mode-toggle:hover {
+    transform: rotate(180deg);
+}
