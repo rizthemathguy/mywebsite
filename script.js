@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const carouselImages = document.querySelectorAll('.carousel-item img');
     const backToTopBtn = document.getElementById('back-to-top');
 
+    // Function to update dark mode button text
     function updateButtonText() {
         if (body.classList.contains('dark-mode')) {
             darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for dark mode
@@ -21,6 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
         body.classList.add('dark-mode');
     }
 
+    // Initialize button text on load
+    updateButtonText();
+
+    // Dark mode toggle event
     darkModeToggle.addEventListener('click', function () {
         if (body.classList.contains('dark-mode')) {
             body.classList.remove('dark-mode');
@@ -31,9 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         updateButtonText();
     });
-
-    // Initialize button text on load
-    updateButtonText();
 
     // Modal display logic
     otherSocialsBtn.addEventListener('click', function () {
@@ -48,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     window.addEventListener('click', function (e) {
-        if (e.target == otherSocialsModal) {
+        if (e.target === otherSocialsModal) {
             otherSocialsModal.style.display = 'none';
         }
     });
@@ -73,8 +75,42 @@ document.addEventListener('DOMContentLoaded', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Add spinning effect to images
-    document.querySelectorAll('.image-container img').forEach(img => {
-        img.classList.add('spinning-img');
+    // Smooth Scroll for Navbar Links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Lightbox Effect for Photography
+    const images = document.querySelectorAll('.photography img');
+    images.forEach(image => {
+        image.addEventListener('click', () => {
+            const lightbox = document.createElement('div');
+            lightbox.id = 'lightbox';
+            lightbox.style.position = 'fixed';
+            lightbox.style.top = 0;
+            lightbox.style.left = 0;
+            lightbox.style.width = '100%';
+            lightbox.style.height = '100%';
+            lightbox.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            lightbox.style.display = 'flex';
+            lightbox.style.alignItems = 'center';
+            lightbox.style.justifyContent = 'center';
+            document.body.appendChild(lightbox);
+
+            const img = document.createElement('img');
+            img.src = image.src;
+            img.style.maxWidth = '90%';
+            img.style.maxHeight = '90%';
+            lightbox.appendChild(img);
+
+            lightbox.addEventListener('click', () => {
+                lightbox.remove();
+            });
+        });
     });
 });
