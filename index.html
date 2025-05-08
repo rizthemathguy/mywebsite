@@ -494,6 +494,192 @@
             color: #4CAF50;
             font-weight: bold;
         }
+        /* Enhanced Achievement Notification System */
+.achievement-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #2c3e50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  z-index: 1001;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 320px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid #f39c12;
+  transform: translateX(120%);
+  animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+  to { transform: translateX(0); }
+}
+
+.achievement-toast:hover {
+  background: #34495e;
+  transform: translateX(0) scale(1.02);
+}
+
+.achievement-toast .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: white;
+  background: rgba(0,0,0,0.2);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.achievement-toast .close-btn:hover {
+  background: rgba(0,0,0,0.4);
+  transform: rotate(90deg);
+}
+
+.achievement-toast .progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #f39c12;
+  width: 100%;
+  animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+.achievement-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.achievement-icon {
+  font-size: 2rem;
+  color: #f39c12;
+  flex-shrink: 0;
+}
+
+.achievement-text h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.achievement-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.achievement-points {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+/* Achievement Details Modal */
+.achievement-details-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+
+.achievement-details-card {
+  background: #ecf0f1;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  color: #2c3e50;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.details-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #7f8c8d;
+  transition: color 0.2s ease;
+}
+
+.details-close-btn:hover {
+  color: #e74c3c;
+}
+
+.details-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.details-icon {
+  font-size: 3.5rem;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+.details-title {
+  font-size: 1.8rem;
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+}
+
+.details-description {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 25px;
+}
+
+.details-reward {
+  background: #f39c12;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* Dark mode compatibility */
+body.dark-mode .achievement-details-card {
+  background: #34495e;
+  color: #ecf0f1;
+}
+
+body.dark-mode .details-title {
+  color: #ecf0f1;
+}
+
+body.dark-mode .details-description {
+  color: #bdc3c7;
+}
     </style>
 </head>
   
@@ -1069,21 +1255,68 @@
     }
 
     function showAchievementPopup(achievement) {
-      const popup = document.createElement('div');
-      popup.className = 'toast';
-      popup.innerHTML = `
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = 'achievement-toast';
+    toast.innerHTML = `
+        <div class="progress-bar"></div>
+        <button class="close-btn">&times;</button>
         <div style="display: flex; align-items: center; gap: 10px;">
-          <i class="fas ${achievement.icon}" style="color: #ffc107; font-size: 1.5rem;"></i>
-          <div>
-            <h4 style="margin: 0;">Achievement Unlocked!</h4>
-            <p style="margin: 5px 0;">${achievement.name}</p>
-            <small>+${achievement.points} points</small>
-          </div>
+            <i class="fas ${achievement.icon}" style="color: #ffc107; font-size: 1.5rem;"></i>
+            <div>
+                <h4 style="margin: 0;">Achievement Unlocked!</h4>
+                <p style="margin: 5px 0;">${achievement.name}</p>
+                <small>+${achievement.points} points</small>
+            </div>
         </div>
-      `;
-      document.body.appendChild(popup);
-      setTimeout(() => popup.remove(), 3000);
-    }
+    `;
+    
+    // Create details modal (hidden by default)
+    const detailsModal = document.createElement('div');
+    detailsModal.className = 'achievement-details';
+    detailsModal.innerHTML = `
+        <div class="achievement-details-content">
+            <span class="achievement-details-close">&times;</span>
+            <div style="text-align: center;">
+                <i class="fas ${achievement.icon}" style="font-size: 3rem; color: #ffc107;"></i>
+                <h2>${achievement.name}</h2>
+                <p>${achievement.desc}</p>
+                <p><strong>Reward: ${achievement.points} points</strong></p>
+            </div>
+        </div>
+    `;
+    
+    // Add to DOM
+    document.body.appendChild(toast);
+    document.body.appendChild(detailsModal);
+    
+    // Set timeout for auto-dismiss
+    const dismissTimer = setTimeout(() => {
+        toast.remove();
+        detailsModal.remove();
+    }, 5000);
+    
+    // Close button handler
+    toast.querySelector('.close-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearTimeout(dismissTimer);
+        toast.remove();
+        detailsModal.remove();
+    });
+    
+    // Click handler for details
+    toast.addEventListener('click', () => {
+        clearTimeout(dismissTimer);
+        toast.style.display = 'none';
+        detailsModal.style.display = 'flex';
+    });
+    
+    // Close details modal
+    detailsModal.querySelector('.achievement-details-close').addEventListener('click', () => {
+        detailsModal.remove();
+        toast.remove();
+    });
+}
 
     // Quest system
     function checkQuestCompletion(questId) {
